@@ -1,0 +1,6 @@
+[package]
+name = "from-test"
+version = "0.1.0"
+authors = ["Jacob MacDonald <jaccarmac@gmail.com>"]
+
+[dependencies]
