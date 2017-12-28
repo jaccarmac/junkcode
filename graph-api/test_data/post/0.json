@@ -1,0 +1,6 @@
+{
+    "message": "foo",
+    "associated_int": 4,
+    "created_time": "2013-01-25T00:11:02+0000",
+    "comments": ["comment/0", "comment/1"]
+}
