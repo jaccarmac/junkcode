@@ -1,2 +1,3 @@
 Bisect dependency versions.
 Write Cargo plugin.
+https://github.com/rust-lang-nursery/rustfmt/blob/master/src/bin/cargo-fmt.rs
