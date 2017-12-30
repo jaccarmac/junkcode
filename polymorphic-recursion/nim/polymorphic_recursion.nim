@@ -20,11 +20,10 @@ proc length(il: IntList): int =
   of ilCons: 1 + il.tail.length
 
 method length[T](n: Nested[T]): int {.base.} = quit "override!"
-  
+
 method length[T](n: NestedEpsilon[T]): int = 0
 
 method length[T](n: NestedCons[T]): int = 1 + n.tail.length
-  
 
 let test_il = IntList(kind: ilCons, head: 0, tail: IntList(kind: ilCons, head: 1, tail: IntList(kind: ilNil)))
 echo test_il.length
