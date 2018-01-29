@@ -17,10 +17,8 @@ namespace free_monad_vs_typeclass
             TypeclassProgram<ResourcePrinterTypeclassUnit, Unit>();
         }
 
-        public static Identity<Unit> TypeclassProgram<ResourcePrinterTypeclassT, T>() where ResourcePrinterTypeclassT: struct, ResourcePrinterTypeclass<Identity<T>, T> =>
-            default(MIdentity<ResourceWrapper>).Bind<MIdentity<Unit>, Identity<Unit>, Unit>(
-                default(ResourcePrinterTypeclassT).AcquireResource<MIdentity<ResourceWrapper>, Identity<ResourceWrapper>>(),
-                r => use(r, _ => default(ResourcePrinterTypeclassT).Print<MIdentity<Unit>, Identity<Unit>>(r, "Hello, world!"))
-            );
+        public static Option<Unit> TypeclassProgram<ResourcePrinterTypeclassT, T>() where ResourcePrinterTypeclassT: struct, ResourcePrinterTypeclass<Option<T>, T> =>
+            default(ResourcePrinterTypeclassT).AcquireResource<MOption<ResourceWrapper>, Option<ResourceWrapper>>().Bind(r => 
+                use(r, _ => default(ResourcePrinterTypeclassT).Print<MOption<Unit>, Option<Unit>>(r, "Hello, world!")));
     }
 }

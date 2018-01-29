@@ -9,7 +9,7 @@ namespace free_monad_vs_typeclass {
         MB AcquireResource<MonadB, MB>() where MonadB: struct, Monad<MB, ResourceWrapper>;
     }
 
-    public struct ResourcePrinterTypeclassUnit : ResourcePrinterTypeclass<Identity<Unit>, Unit> {
+    public struct ResourcePrinterTypeclassUnit : ResourcePrinterTypeclass<Option<Unit>, Unit> {
         public MB Print<MonadB, MB>(ResourceWrapper resource, string output) where MonadB: struct, Monad<MB, Unit> =>
             default(MonadB).Return(fun(() => resource.Print(output))());
         
