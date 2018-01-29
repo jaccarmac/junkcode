@@ -18,7 +18,6 @@ namespace free_monad_vs_typeclass
         }
 
         public static Unit TypeclassProgram<ResourcePrinterTypeclassT>() where ResourcePrinterTypeclassT: struct, ResourcePrinterTypeclass =>
-            use(default(ResourcePrinterTypeclassT).AcquireResource(), r => 
-                default(ResourcePrinterTypeclassT).Print(r, "Hello, world!"));
+            default(ResourcePrinterTypeclassT).AcquireResource(r => default(ResourcePrinterTypeclassT).Print(r, "Hello, world!"));
     }
 }
