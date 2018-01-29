@@ -1,4 +1,5 @@
 ﻿using LanguageExt;
+using LanguageExt.ClassInstances;
 using System;
 
 using static LanguageExt.Prelude;
@@ -16,7 +17,10 @@ namespace free_monad_vs_typeclass
             TypeclassProgram<ResourcePrinterTypeclassUnit, Unit>();
         }
 
-        public static Unit TypeclassProgram<ResourcePrinterTypeclassT, T>() where ResourcePrinterTypeclassT: struct, ResourcePrinterTypeclass<T> =>
-            use(default(ResourcePrinterTypeclassT).AcquireResource, r => default(ResourcePrinterTypeclassT).Print(r, "Hello, world!"));
+        public static Identity<Unit> TypeclassProgram<ResourcePrinterTypeclassT, T>() where ResourcePrinterTypeclassT: struct, ResourcePrinterTypeclass<Identity<T>, T> =>
+            default(MIdentity<ResourceWrapper>).Bind<MIdentity<Unit>, Identity<Unit>, Unit>(
+                default(ResourcePrinterTypeclassT).AcquireResource<MIdentity<ResourceWrapper>, Identity<ResourceWrapper>>(),
+                r => use(r, _ => default(ResourcePrinterTypeclassT).Print<MIdentity<Unit>, Identity<Unit>>(r, "Hello, world!"))
+            );
     }
 }
