@@ -4,12 +4,12 @@ using LanguageExt.TypeClasses;
 using static LanguageExt.Prelude;
 
 namespace free_monad_vs_typeclass {
-    public interface ResourcePrinterTypeclass<MA, A> {
+    public interface ResourcePrinterTypeclass {
         MB Print<MonadB, MB>(ResourceWrapper resource, string output) where MonadB: struct, Monad<MB, Unit>;
         MB AcquireResource<MonadB, MB>() where MonadB: struct, Monad<MB, ResourceWrapper>;
     }
 
-    public struct ResourcePrinterTypeclassUnit : ResourcePrinterTypeclass<Option<Unit>, Unit> {
+    public struct ResourcePrinterTypeclassImpl : ResourcePrinterTypeclass {
         public MB Print<MonadB, MB>(ResourceWrapper resource, string output) where MonadB: struct, Monad<MB, Unit> =>
             default(MonadB).Return(fun(() => resource.Print(output))());
         

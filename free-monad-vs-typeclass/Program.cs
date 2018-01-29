@@ -14,10 +14,10 @@ namespace free_monad_vs_typeclass
                 new ResourcePrinterFree<Unit>.Return(unit));
             freeProgram.Map(FreeInterpreter.Interpret);
 
-            TypeclassProgram<ResourcePrinterTypeclassUnit, Unit>();
+            TypeclassProgram<ResourcePrinterTypeclassImpl>();
         }
 
-        public static Option<Unit> TypeclassProgram<ResourcePrinterTypeclassT, T>() where ResourcePrinterTypeclassT: struct, ResourcePrinterTypeclass<Option<T>, T> =>
+        public static Option<Unit> TypeclassProgram<ResourcePrinterTypeclassT>() where ResourcePrinterTypeclassT: struct, ResourcePrinterTypeclass =>
             default(ResourcePrinterTypeclassT).AcquireResource<MOption<ResourceWrapper>, Option<ResourceWrapper>>().Bind(r => 
                 use(r, _ => default(ResourcePrinterTypeclassT).Print<MOption<Unit>, Option<Unit>>(r, "Hello, world!")));
     }
