@@ -16,4 +16,12 @@ namespace free_monad_vs_typeclass {
         public ResourceWrapper AcquireResource() =>
             new ResourceWrapper();
     }
+
+    public struct ResourcePrinterTypeclassAllCapsImpl : ResourcePrinterTypeclass {
+        public Unit Print(ResourceWrapper resource, string output) =>
+            fun(() => resource.Print(output.ToUpper()))();
+        
+        public ResourceWrapper AcquireResource() =>
+            new ResourceWrapper();
+    }
 }

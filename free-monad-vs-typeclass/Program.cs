@@ -14,7 +14,7 @@ namespace free_monad_vs_typeclass
                 new ResourcePrinterFree<Unit>.Return(unit));
             freeProgram.Map(FreeInterpreter.Interpret);
 
-            TypeclassProgram<ResourcePrinterTypeclassImpl>();
+            TypeclassProgram<ResourcePrinterTypeclassAllCapsImpl>();
         }
 
         public static Unit TypeclassProgram<ResourcePrinterTypeclassT>() where ResourcePrinterTypeclassT: struct, ResourcePrinterTypeclass =>
