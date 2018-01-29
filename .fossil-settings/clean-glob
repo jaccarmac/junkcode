@@ -1,4 +1,6 @@
+**/bin/
 **/nimcache/
+**/obj/
 **/target/
 **/*.pyc
 polymorphic-recursion/nim/polymorphic_recursion
