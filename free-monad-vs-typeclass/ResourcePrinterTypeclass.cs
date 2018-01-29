@@ -5,15 +5,15 @@ using static LanguageExt.Prelude;
 
 namespace free_monad_vs_typeclass {
     public interface ResourcePrinterTypeclass {
-        MB Print<MonadB, MB>(ResourceWrapper resource, string output) where MonadB: struct, Monad<MB, Unit>;
-        MB AcquireResource<MonadB, MB>() where MonadB: struct, Monad<MB, ResourceWrapper>;
+        Unit Print(ResourceWrapper resource, string output);
+        ResourceWrapper AcquireResource();
     }
 
     public struct ResourcePrinterTypeclassImpl : ResourcePrinterTypeclass {
-        public MB Print<MonadB, MB>(ResourceWrapper resource, string output) where MonadB: struct, Monad<MB, Unit> =>
-            default(MonadB).Return(fun(() => resource.Print(output))());
+        public Unit Print(ResourceWrapper resource, string output) =>
+            fun(() => resource.Print(output))();
         
-        public MB AcquireResource<MonadB, MB>() where MonadB: struct, Monad<MB, ResourceWrapper> =>
-            default(MonadB).Return(new ResourceWrapper());
+        public ResourceWrapper AcquireResource() =>
+            new ResourceWrapper();
     }
 }
