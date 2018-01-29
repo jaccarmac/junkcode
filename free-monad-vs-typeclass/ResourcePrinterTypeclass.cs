@@ -10,6 +10,14 @@ namespace free_monad_vs_typeclass {
         T AcquireResource<T>(Func<ResourceWrapper, T> f);
     }
 
+    public static class ResourcePrinterTypeclassExtensions {
+        public static Unit rpprint<T>(ResourceWrapper resource, string output) where T: struct, ResourcePrinterTypeclass =>
+            default(T).Print(resource, output);
+        
+        public static U rpacquireResource<T, U>(Func<ResourceWrapper, U> f) where T: struct, ResourcePrinterTypeclass =>
+            default(T).AcquireResource(f);
+    }
+
     public struct ResourcePrinterTypeclassImpl : ResourcePrinterTypeclass {
         public Unit Print(ResourceWrapper resource, string output) =>
             fun(() => resource.Print(output))();

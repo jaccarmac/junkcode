@@ -2,6 +2,7 @@
 using LanguageExt.ClassInstances;
 using System;
 
+using static free_monad_vs_typeclass.ResourcePrinterTypeclassExtensions;
 using static LanguageExt.Prelude;
 
 namespace free_monad_vs_typeclass
@@ -17,7 +18,7 @@ namespace free_monad_vs_typeclass
             TypeclassProgram<ResourcePrinterTypeclassAllCapsImpl>();
         }
 
-        public static Unit TypeclassProgram<ResourcePrinterTypeclassT>() where ResourcePrinterTypeclassT: struct, ResourcePrinterTypeclass =>
-            default(ResourcePrinterTypeclassT).AcquireResource(r => default(ResourcePrinterTypeclassT).Print(r, "Hello, world!"));
+        public static Unit TypeclassProgram<T>() where T: struct, ResourcePrinterTypeclass =>
+            rpacquireResource<T, Unit>(r => rpprint<T>(r, "Hello, world!"));
     }
 }
