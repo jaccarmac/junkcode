@@ -3,3 +3,4 @@ and continuous fractions, in Scopes.
 https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree
 https://www.cut-the-knot.org/blue/Stern.shtml
 https://bitbucket.org/duangle/scopes/wiki/Home
+https://news.ycombinator.com/item?id=16648546
