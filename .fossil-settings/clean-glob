@@ -4,3 +4,5 @@
 **/target/
 **/*.pyc
 polymorphic-recursion/nim/polymorphic_recursion
+**/node_modules/
+/svelte-cljs/public/bundle.*
