@@ -28,10 +28,15 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
   integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
 
-"@types/node@*", "@types/node@^11.13.5":
+"@types/node@*":
   version "11.13.7"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.7.tgz#85dbb71c510442d00c0631f99dae957ce44fd104"
   integrity sha512-suFHr6hcA9mp8vFrZTgrmqW2ZU3mbWsryQtQlY/QvwTISCw7nw/j+bCQPPohqmskhmqa5wLNuMHTTsc+xf1MQg==
+
+"@types/node@^11.13.9":
+  version "11.13.10"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.10.tgz#4df59e5966b56f512bac98898bcbee5067411f0f"
+  integrity sha512-leUNzbFTMX94TWaIKz8N15Chu55F9QSH+INKayQr5xpkasBQBRF3qQXfo3/dOnMU/dEIit+Y/SU8HyOjq++GwA==
 
 "@types/resolve@0.0.8":
   version "0.0.8"
@@ -1403,10 +1408,10 @@ rollup-plugin-commonjs@^9.3.4:
     resolve "^1.10.0"
     rollup-pluginutils "^2.6.0"
 
-rollup-plugin-node-resolve@^4.2.3:
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-4.2.3.tgz#638a373a54287d19fcc088fdd1c6fd8a58e4d90a"
-  integrity sha512-r+WaesPzdGEynpLZLALFEDugA4ACa5zn7bc/+LVX4vAXQQ8IgDHv0xfsSvJ8tDXUtprfBtrDtRFg27ifKjcJTg==
+rollup-plugin-node-resolve@^4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-4.2.4.tgz#7d370f8d6fd3031006a0032c38262dd9be3c6250"
+  integrity sha512-t/64I6l7fZ9BxqD3XlX4ZeO6+5RLKyfpwE2CiPNUKa+GocPlQhf/C208ou8y3AwtNsc6bjSk/8/6y/YAyxCIvw==
   dependencies:
     "@types/resolve" "0.0.8"
     builtin-modules "^3.1.0"
@@ -1440,13 +1445,13 @@ rollup-pluginutils@^2.3.3, rollup-pluginutils@^2.6.0:
     estree-walker "^0.6.0"
     micromatch "^3.1.10"
 
-rollup@^1.10.1:
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.10.1.tgz#aeb763bbe98f707dc6496708db88372fa66687e7"
-  integrity sha512-pW353tmBE7QP622ITkGxtqF0d5gSRCVPD9xqM+fcPjudeZfoXMFW2sCzsTe2TU/zU1xamIjiS9xuFCPVT9fESw==
+rollup@^1.11.3:
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.11.3.tgz#6f436db2a2d6b63f808bf60ad01a177643dedb81"
+  integrity sha512-81MR7alHcFKxgWzGfG7jSdv+JQxSOIOD/Fa3iNUmpzbd7p+V19e1l9uffqT8/7YAHgGOzmoPGN3Fx3L2ptOf5g==
   dependencies:
     "@types/estree" "0.0.39"
-    "@types/node" "^11.13.5"
+    "@types/node" "^11.13.9"
     acorn "^6.1.1"
 
 sade@^1.4.0:
@@ -1516,10 +1521,10 @@ shadow-cljs-jar@1.3.1:
   resolved "https://registry.yarnpkg.com/shadow-cljs-jar/-/shadow-cljs-jar-1.3.1.tgz#a5f8ab7664b40e11345837e4c6bce8e0ac9b2cc3"
   integrity sha512-IJSm4Gfu/wWDsOQ0wNrSxuaGdjzsd78us+3bop3cpWsoO2Igdu6VIBItYrZHRRBKl5LIZKXfnSh/2eWG3C1EFw==
 
-shadow-cljs@^2.8.33:
-  version "2.8.33"
-  resolved "https://registry.yarnpkg.com/shadow-cljs/-/shadow-cljs-2.8.33.tgz#2e130addd9fb1a892e027fd2cfae4e4cb8593d4b"
-  integrity sha512-A/R7sYMhH5h/Mxkao09YbF7bCQiwsnf6iCOR/zoszxIYhEo54Ecu1GlO6d4bmOY30CRHOvgtAxGwJgY7wATuFg==
+shadow-cljs@^2.8.36:
+  version "2.8.36"
+  resolved "https://registry.yarnpkg.com/shadow-cljs/-/shadow-cljs-2.8.36.tgz#0e7c4c1a3eddda333f62b476e92da5aada9d31d8"
+  integrity sha512-xaoTjYkdxwOVS7LGa8auxkky9Rydjat5xUwG5cc5hpK8z3AXwJRu8lmlKcUSUGgCaJgbG4EpIwP45SgDT1rwVw==
   dependencies:
     mkdirp "^0.5.1"
     node-libs-browser "^2.0.0"
@@ -1551,23 +1556,23 @@ shell-quote@^1.6.1:
     array-reduce "~0.0.0"
     jsonify "~0.0.0"
 
-sirv-cli@^0.3.1:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/sirv-cli/-/sirv-cli-0.3.2.tgz#4bd47c988880d6f1a582cfa9d0c86013e4a38ee1"
-  integrity sha512-8hkZFMAqorb/+3epqH+bmmeixb+Ppo4uPUc0iAVYek46lAt916MyWwIFPuwE1Tt3+jfMAcwcuMUz0X8a9PnAow==
+sirv-cli@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/sirv-cli/-/sirv-cli-0.4.2.tgz#86ed7f9df7982d4a350dacbb13063e85f0b6a75f"
+  integrity sha512-fw1NUFOuuH1uxmZlPaGAnT9ax8g2vug6QbRibxtbNf58UygerYmlqAIN+CVSLmd4kcr+mat/BlNSwAc+gNyrKg==
   dependencies:
     console-clear "^1.1.0"
     get-port "^3.2.0"
     kleur "^3.0.0"
     local-access "^1.0.1"
     sade "^1.4.0"
-    sirv "^0.3.1"
+    sirv "^0.4.2"
     tinydate "^1.0.0"
 
-sirv@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/sirv/-/sirv-0.3.1.tgz#a346c5d9bb4b50f60cb73423041b9c1694532287"
-  integrity sha512-03p4fuXPfhlNrDjUBw5bGF//4i0Rjwf7hVm8XhuKgeguHGQPr4pV+lgAJZKSP9BaJKn+QG9QvTxLX1wSYshccg==
+sirv@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/sirv/-/sirv-0.4.2.tgz#842ed22f3aab58faee84eea66cf66066e123d6db"
+  integrity sha512-dQbZnsMaIiTQPZmbGmktz+c74zt/hyrJEB4tdp2Jj0RNv9J6B/OWR5RyrZEvIn9fyh9Zlg2OlE2XzKz6wMKGAw==
   dependencies:
     "@polka/url" "^0.5.0"
     mime "^2.3.1"
@@ -1750,10 +1755,10 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
-svelte@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.0.0.tgz#70e1e9d9980a5cd6c5516b62518e49dab5859bb4"
-  integrity sha512-4QQ7eBuVw/t0kMSSjLCiAjQYTj7ZF0OtH24YOWtTrTJHTLd58gEAPZeKSGOYDXtwpcrMi4Cxo3MgEbdI1m4erg==
+svelte@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.2.2.tgz#e647879b0a0edb4d4bb5f8af971af8a1f4cb29ef"
+  integrity sha512-B6ePpPodCQodVFDwv/uByaWs0KvXojaXZiB/db1x7WXbyxgLJ8xZF3j1lk5M83Ox0AWlX0fQnCTAaZmfT6xqdw==
 
 terser@^3.14.1:
   version "3.17.0"
