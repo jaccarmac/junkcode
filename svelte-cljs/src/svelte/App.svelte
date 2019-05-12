@@ -1,5 +1,5 @@
 <script>
-	let name = 'world';
+       import appMain from 'shadow-cljs/app.main'
 </script>
 
-<h1>Hello {name}!</h1>
+<h1>Hello {appMain.name}!</h1>

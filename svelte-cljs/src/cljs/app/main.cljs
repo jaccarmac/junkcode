@@ -1,8 +1,3 @@
-(ns app.main
-  #_(:require ["/App" :default App])
-  (:require ["svelte/compiler" :as svelte]))
+(ns app.main)
 
-#_(new App {:target js/document.body})
-
-(defn main! []
-  (.log js/console (.-VERSION svelte)))
+(def name "world")
