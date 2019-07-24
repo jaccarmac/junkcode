@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "pdf.js-extract": "^0.1.1"
+  },
+  "devDependencies": {
+    "shadow-cljs": "^2.8.41"
+  }
+}

@@ -1,0 +1,5 @@
+{:source-paths ["src"]
+ :builds {:script
+          {:target :node-script
+           :main extract/main
+           :output-to "extract.js"}}}
