@@ -12,7 +12,6 @@
                 #js{}
                 #(do (if %1
                        (println %1)
-                       (put! data-chan %2))
-                     (close! data-chan)))
+                       (put! data-chan %2))))
       (let [data (<! data-chan)]
         (println (util/inspect data false nil true))))))
