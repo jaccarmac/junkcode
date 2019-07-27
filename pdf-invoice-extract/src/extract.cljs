@@ -14,4 +14,4 @@
                        (println %1)
                        (put! data-chan %2))))
       (let [data (<! data-chan)]
-        (println (util/inspect data false nil true))))))
+        (println (map #(.-str %) (.-content (first (.-pages data)))))))))
