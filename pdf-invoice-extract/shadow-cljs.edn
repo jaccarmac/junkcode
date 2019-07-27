@@ -1,4 +1,5 @@
 {:source-paths ["src"]
+ :dependencies [[org.clojure/core.async "0.4.500"]]
  :builds {:script
           {:target :node-script
            :main extract/main
