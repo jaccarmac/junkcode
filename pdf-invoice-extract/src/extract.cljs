@@ -11,8 +11,8 @@
                 (first cli-args)
                 #js{}
                 #(do (if %1
-                       (js/console.log %1)
+                       (println %1)
                        (put! data-chan %2))
                      (close! data-chan)))
       (let [data (<! data-chan)]
-        (js/console.log (util/inspect data false nil true))))))
+        (println (util/inspect data false nil true))))))
