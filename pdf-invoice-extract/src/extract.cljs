@@ -1,7 +1,7 @@
 (ns extract
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [cljs.core.async :refer [chan put! <!]]
-            ["pdf.js-extract" :refer (PDFExtract)]
+            ["pdf.js-extract" :refer [PDFExtract]]
             ["util" :as util]))
 
 (defn main [& cli-args]
