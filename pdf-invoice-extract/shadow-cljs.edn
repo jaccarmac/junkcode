@@ -3,4 +3,5 @@
  :builds {:script
           {:target :node-script
            :main extract/main
-           :output-to "extract.js"}}}
+           :output-to "extract.js"
+           :devtools {:enabled false}}}}
