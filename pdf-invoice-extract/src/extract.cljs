@@ -4,11 +4,11 @@
             ["pdf.js-extract" :refer [PDFExtract]]
             ["util" :as util]))
 
-(defn main [& cli-args]
+(defn extract [fn]
   (go
     (let [data-chan (chan)]
       (.extract (new PDFExtract)
-                (first cli-args)
+                fn
                 #js{}
                 #(do (if %1
                        (println %1)
@@ -17,3 +17,12 @@
         ;; the format we need to pull out is after a string content of "ea"
         ;; table fmt is "ea", name, type, # ordered, # shipped, id, # U/M, total price, retail price, extended price
         (println (map #(.-str %) (.-content (first (.-pages data)))))))))
+
+(def filename)
+
+(defn go-extract []
+  (extract filename))
+
+(defn main [& cli-args]
+  (set! filename (first cli-args))
+  (go-extract))
