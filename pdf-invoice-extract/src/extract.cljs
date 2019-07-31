@@ -15,13 +15,7 @@
       (let [data (<! data-chan)]
         ;; the format we need to pull out is after a string content of "ea"
         ;; table fmt is "ea", name, type, # ordered, # shipped, id, # U/M, total price, retail price, extended price
-        (println (map #(.-str %) (.-content (first (.-pages data)))))))))
-
-(def filename)
-
-(defn go-extract []
-  (extract filename))
+        (map #(.-str %) (.-content (first (.-pages data))))))))
 
 (defn main [& cli-args]
-  (set! filename (first cli-args))
-  (go-extract))
+  (println (extract (first cli-args))))

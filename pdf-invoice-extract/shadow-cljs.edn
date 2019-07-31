@@ -3,5 +3,4 @@
  :builds {:script
           {:target :node-script
            :main extract/main
-           :devtools {:after-load extract/go-extract}
            :output-to "extract.js"}}}
