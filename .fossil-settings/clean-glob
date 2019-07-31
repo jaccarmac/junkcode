@@ -8,3 +8,4 @@ polymorphic-recursion/nim/polymorphic_recursion
 svelte-cljs/public/bundle.*
 svelte-cljs/public/js/
 **/.shadow-cljs/
+pdf-invoice-extract/out/
