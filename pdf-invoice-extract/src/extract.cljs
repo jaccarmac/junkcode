@@ -12,9 +12,12 @@
                      (println %1)
                      (put! data-chan %2)))) 
     (go (when-let [data (<! data-chan)]
-          (->> (.-content (first (.-pages data)))
-               (sort-by #(vector (.-y %) (.-x %)))
-               (map #(.-str %)))))))
+          (->> (js->clj data :keywordize-keys true)
+               :pages
+               first
+               :content
+               (sort-by #(vector (:y %) (:x %)))
+               (map :str))))))
 
 (defn main [& cli-args]
   (go (println (<! (extract (first cli-args))))))
