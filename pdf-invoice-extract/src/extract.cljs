@@ -12,7 +12,7 @@
                 #(do (if %1
                        (println %1)
                        (put! data-chan %2))))
-      (let [data (<! data-chan)]
+      (when-let [data (<! data-chan)]
         ;; the format we need to pull out is after a string content of "ea"
         ;; table fmt is "ea", name, type, # ordered, # shipped, id, # U/M, total price, retail price, extended price
         (map #(.-str %) (.-content (first (.-pages data))))))))
