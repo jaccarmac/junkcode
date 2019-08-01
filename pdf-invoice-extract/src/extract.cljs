@@ -12,7 +12,9 @@
                      (println %1)
                      (put! data-chan %2)))) 
     (go (when-let [data (<! data-chan)]
-          (map #(.-str %) (sort-by #(vector (.-y %) (.-x %)) (.-content (first (.-pages data)))))))))
+          (map #(.-str %)
+               (sort-by #(vector (.-y %) (.-x %))
+                        (.-content (first (.-pages data)))))))))
 
 (defn main [& cli-args]
   (go (println (<! (extract (first cli-args))))))
