@@ -14,7 +14,7 @@
     (go (when-let [data (<! data-chan)]
           ;; the format we need to pull out is after a string content of "ea"
           ;; table fmt is "ea", name, type, # ordered, # shipped, id, # U/M, total price, retail price, extended price
-          (map #(.-str %) (.-content (first (.-pages data))))))))
+          (map #(.-str %) (sort-by #(vector (.-y %) (.-x %)) (.-content (first (.-pages data)))))))))
 
 (defn main [& cli-args]
   (go (println (<! (extract (first cli-args))))))
