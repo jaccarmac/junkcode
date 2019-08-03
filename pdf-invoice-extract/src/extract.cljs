@@ -10,14 +10,16 @@
               #js{}
               #(do (if %1
                      (println %1)
-                     (put! data-chan %2)))) 
-    (go (when-let [data (<! data-chan)]
-          (->> (js->clj data :keywordize-keys true)
-               :pages
-               first
-               :content
-               (sort-by #(vector (:y %) (:x %)))
-               (map :str))))))
+                     (put! data-chan %2))))
+    data-chan))
+
+(defn text-in-order [pdf]
+  (->> (js->clj pdf :keywordize-keys true)
+       :pages
+       first
+       :content
+       (sort-by #(vector (:y %) (:x %)))
+       (map :str)))
 
 (defn main [& cli-args]
-  (go (println (<! (extract (first cli-args))))))
+  (go (println (text-in-order (<! (extract (first cli-args)))))))
