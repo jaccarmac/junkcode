@@ -14,7 +14,13 @@
     data-chan))
 
 (defn compare-text-rects [r s]
-  (compare [(:y r) (:x r)] [(:y s) (:x s)]))
+  (let [r-min-y (:y r)
+        s-min-y (:y s)
+        r-max-y (+ r-min-y (:height r))
+        s-max-y (+ s-min-y (:height s))]
+    (cond (< r-max-y s-min-y) -1
+          (< s-max-y r-min-y) 1
+          :else (compare (:x r) (:x s)))))
 
 (defn text-in-order [pdf]
   (->> (js->clj pdf :keywordize-keys true)
