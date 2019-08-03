@@ -13,12 +13,15 @@
                      (put! data-chan %2))))
     data-chan))
 
+(defn compare-text-rects [r s]
+  (compare [(:y r) (:x r)] [(:y s) (:x s)]))
+
 (defn text-in-order [pdf]
   (->> (js->clj pdf :keywordize-keys true)
        :pages
        first
        :content
-       (sort-by #(vector (:y %) (:x %)))
+       (sort compare-text-rects)
        (map :str)))
 
 (defn main [& cli-args]
