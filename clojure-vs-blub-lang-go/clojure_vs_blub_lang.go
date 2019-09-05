@@ -13,21 +13,15 @@ func FetchData(n int, log chan string) int {
 }
 
 func GetData() struct{result [100]int; log string} {
-	out := make(chan struct{idx, data int})
+	var res struct{result[100]int; log string}
 	log := make(chan string)
 	for i := 0; i < 100; i++ {
 		go func(i int) {
-                        out <- struct{idx, data int} {i, FetchData(i, log)}
+			res.result[i] = FetchData(i, log)
 		}(i)
 	}
-	var res struct{result[100]int; log string}
-	for i := 0; i < 200; i++ {
-		select {
-		case d := <-out:
-			res.result[d.idx] = d.data
-		case msg := <-log:
-			res.log += msg
-		}
+	for i := 0; i < 100; i++ {
+		res.log += <-log
 	}
 	return res
 }
