@@ -2,32 +2,32 @@ package clojure_vs_blub_lang
 
 import (
 	"fmt"
-	"sync"
 	"time"
 )
 
-func FetchData(idx int, n int, out chan struct{idx, data int}, log chan string) {
+func FetchData(n int, log chan string) int {
 	start := time.Now()
 	for time.Now().Sub(start) < time.Second {}
-	log <- fmt.Sprintf("Fetched record: %d", n)
-	out <- struct{idx, data int} {idx, n}
+	log <- fmt.Sprintf("Fetched record: %d\n", n)
+        return n
 }
 
-func GetData(log chan string) []int {
-	var wg sync.WaitGroup
-	wg.Add(100)
-	out := make(chan struct{idx, data int}, 100)
+func GetData() struct{result [100]int; log string} {
+	out := make(chan struct{idx, data int})
+	log := make(chan string)
 	for i := 0; i < 100; i++ {
 		go func(i int) {
-			defer wg.Done()
-			FetchData(i, i, out, log)
+                        out <- struct{idx, data int} {i, FetchData(i, log)}
 		}(i)
 	}
-	wg.Wait()
-	close(out)
-	res := make([]int, 100)
-	for d := range out {
-		res[d.idx] = d.data
+	var res struct{result[100]int; log string}
+	for i := 0; i < 200; i++ {
+		select {
+		case d := <-out:
+			res.result[d.idx] = d.data
+		case msg := <-log:
+			res.log += msg
+		}
 	}
 	return res
 }
