@@ -7,7 +7,8 @@ import (
 )
 
 func FetchData(idx int, n int, out chan struct{idx, data int}, log chan string) {
-	time.Sleep(time.Second)
+	start := time.Now()
+	for time.Now().Sub(start) < time.Second {}
 	log <- fmt.Sprintf("Fetched record: %d", n)
 	out <- struct{idx, data int} {idx, n}
 }
