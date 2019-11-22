@@ -1,0 +1,18 @@
+I just showerthought the way the birthday paradox works, statistically. Can
+start by implementing the brute-force search of combinations, then maybe figure
+out a better mathematical way to do it.
+
+Basically, we want a function which takes the size of a room of people and
+checks all combinations of birthdays of a room of that size. So for n=5 for
+example start with the list ='(0 0 0 0 0)= and iterate combinations until
+='(355 355 355 355 355)=. Not sure how long that will take for large numbers
+(believe the paradox hits > 50% at n=12?), so instead of genning all combos
+could just keep a count of how many combos have been tried and how many share a
+birthday.
+
+(Speaking of, to check that, we can sort the list and then check each pair for
+equality, pretty sure that's the best.)
+
+Then just iterate n until we hit fifty percent.
+
+Then a less brute-forcy solution that avoids the massive combination problem!
