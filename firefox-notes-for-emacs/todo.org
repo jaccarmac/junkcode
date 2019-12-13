@@ -1,0 +1,3 @@
+https://github.com/mozilla/notes
+
+=storage= permission seems to be important.
