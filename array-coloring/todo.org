@@ -1,0 +1,26 @@
+Live syntax highlighting on the terminal for array langs.
+
+https://www.reddit.com/r/apljk/comments/g7vpqw/i_had_a_dream_about_k9/
+
+#+begin_quote
+It was a very simple concept.
+
+Because a lot of operators are overloaded, it can be hard to tell nouns,
+monadic vs dyadic verbs, adverbs apart without actually parsing a line of k in
+your mind.
+
+In my dream, I came up with a simple idea. Instead of color-coding keywords,
+can we have a simple parser that color-codes characters based on their
+overloaded meaning?
+
+Nouns be be one color, monadic verbs another, dyadic verbs another, etc. It
+seems like such a simple way to disambiguate k primitives at a glance, and
+probably wouldn’t be too hard to code in Sublime or VS Code.
+
+Does anyone see any value in this? Or am I just not plugged into the matrix
+properly?
+
+I wouldn’t mind creating a GitHub repo for this if there is enough interest.
+#+end_quote
+
+Remember colorFORTH?
