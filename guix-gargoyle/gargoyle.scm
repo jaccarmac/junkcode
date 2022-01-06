@@ -15,7 +15,7 @@
              (url "https://github.com/garglk/garglk")
              (commit commit)))
        (file-name (git-file-name name version))
-       (sha-256
+       (sha256
         (base32 "008n2gq0if4mkvli7dcz9m4wwr5y4xlmipm2axrm0lsg29namr8y"))))
     (build-system cmake-build-system)
     (home-page "http://ccxvii.net/gargoyle/")
