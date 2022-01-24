@@ -1,14 +1,16 @@
 (use-modules (guix packages)
              (guix git-download)
              (guix build-system cmake)
-             (guix licenses)
+             ((guix licenses) #:prefix license:)
              (gnu packages fontutils)
              (gnu packages image)
              (gnu packages qt)
              (gnu packages pkg-config)
-             (gnu packages sdl))
+             (gnu packages sdl)
+             (gnu packages glib)
+             (gnu packages speech))
 
-(let ((commit "a02c2095978db492f02a0b74157d48f51edde9fa")
+(let ((commit "7942b322446b7a2ae7a99ec34c62305ac8cdeb90")
       (revision "1"))
   (package
     (name "gargoyle")
@@ -21,11 +23,19 @@
              (commit commit)))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "008n2gq0if4mkvli7dcz9m4wwr5y4xlmipm2axrm0lsg29namr8y"))))
+        (base32 "0xk5qhsri5sj1gc95q9bw71f29a61y9ararjbd8hs0axvffybixv"))))
     (build-system cmake-build-system)
-    (arguments '(#:tests? #f))
+    (arguments '(#:configure-flags
+                 '("-DWITH_QT6=true")
+                 #:tests? #f))
     (native-inputs (list pkg-config))
-    (inputs (list freetype libjpeg-turbo qtbase-5 sdl2-mixer fontconfig))
+    (inputs (list freetype
+                  libjpeg-turbo
+                  qtbase
+                  sdl2-mixer
+                  fontconfig
+                  glib
+                  speech-dispatcher))
     (home-page "http://ccxvii.net/gargoyle/")
     (synopsis "An interactive fiction player")
     (description
@@ -37,4 +47,4 @@ separate player (interpreter) for each format of IF you wanted to play.
 
 Gargoyle is based on the standard interpreters for the formats it
 supports.")
-    (license gpl2)))
+    (license license:gpl2)))
