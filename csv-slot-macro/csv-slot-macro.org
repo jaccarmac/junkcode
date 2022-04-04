@@ -1,0 +1,53 @@
+[[https://www.reddit.com/r/lisp/comments/tvwaeo/i_need_some_macro_writing_help_functions_inside/][Someone needs help with a macro]]. The goal is turning a description of fields in
+a CSV file into a custom ~make-foo~ struct initialization call.
+
+We get the following example code.
+
+#+begin_src lisp
+  ;; Example struct
+  (defstruct foo dataX dataY)
+
+  ;; Dummy example
+  (let ((it '(a b c d e f g)))
+    (apply #'make-foo
+           `(:dataX ,(nth (1- 3) it)
+             :dataY ,(nth (1- 1) it))))
+
+  (let ((it '(a b c d e f g)))
+    (make-foo :dataX (nth (1- 3) it)
+              :dataY (nth (1- 1) it)))
+#+end_src
+
+It seems that a solution would be a macro which creates something ~equalp~ to
+either of the ~let~ expressions.
+
+#+begin_src lisp
+  (defparameter specs '((dataX 3) (dataY 1)))
+
+  (let ((it '(a b c d e f g)))
+    (specs->foo specs it))
+#+end_src
+
+The provided definition of ~as-keyword~ is useful indeed.
+
+#+begin_src lisp
+  (defun as-keyword (sym) (intern (string sym) :keyword))
+#+end_src
+
+But the expressed need for a macro is a red herring. The slot specifications
+are in a parameter or some other runtime value, as is the data being
+processed. The solution is to build an appropriate list for the ~apply~, and no
+more.
+
+#+begin_src lisp
+  (defun specs->foo (specs data)
+    (apply #'make-foo (mapcan #'(lambda (spec) (list
+                                                (as-keyword (first spec))
+                                                (nth (1- (second spec)) data)))
+                              specs)))
+#+end_src
+* Tangled source.
+** =manifest.scm=
+#+begin_src scheme :tangle manifest.scm
+  (specifications->manifest '("sbcl"))
+#+end_src
