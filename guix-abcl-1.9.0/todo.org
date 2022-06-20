@@ -1,0 +1,20 @@
+In ABCL, loading Guix libraries can be tricky. I found out that one cannot
+override the packaged version of ASDF, and Guix does not patch it like it does
+for other CL implementations.
+
+I'd like to patch it at some point, but that probably involves moving the
+definition next to the other Lisp stuff.
+
+A global registry push, like Quicklisp does, works. But the new ASDF
+configuration format is probably worth
+learning. =$GUIX_ENVIRONMENT/share/common-lisp/systems= is the directory to
+push, anyway.
+
+#+begin_src common-lisp
+  (asdf:initialize-source-registry
+   `(:source-registry
+     (:tree ,(merge-pathnames
+              "share/common-lisp/source/"
+              (concatenate 'string (ext:getenv "GUIX_ENVIRONMENT") "/")))
+     :inherit-configuration))
+#+end_src
