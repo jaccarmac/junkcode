@@ -1,0 +1,9 @@
+I've been inspired by Conal Elliott's [[https://www.youtube.com/watch?v=oaIMMclGuog][Can Tensor Programming Be Liberated from
+the Fortran Data Paradigm?]] before even finishing the talk. The bottom-up
+perfect binary tree is still a little mystifying, but as near as I can
+understand it, the tree basically looks like ~T(P(P(1, 2), P(3, 4)))~. That is,
+one tree "wrapper", the leaves split into pairs all the way down, a kind of
+flat-but-not encoding of the array. Anyway, due to my own interest in
+denotation design combined with recent employment using Python (which Conal
+disparages a little in a recent interview), I'm very curious to implement this
+algorithm in Python. Google's [[https://github.com/google/jax/issues/185][JAX]] seems like a thing to look at.
