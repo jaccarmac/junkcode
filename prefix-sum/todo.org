@@ -7,3 +7,6 @@ flat-but-not encoding of the array. Anyway, due to my own interest in
 denotation design combined with recent employment using Python (which Conal
 disparages a little in a recent interview), I'm very curious to implement this
 algorithm in Python. Google's [[https://github.com/google/jax/issues/185][JAX]] seems like a thing to look at.
+
+In addition, there are other ways to approach category theory in Python. [[https://www.philipzucker.com/computational-category-theory-in-python-i-dictionaries-for-finset/][This
+blog series]], [[https://github.com/finsberg/category-theory-python][a more recent set of patterns]], and [[https://github.com/denotational-design-channel/transcripts][a non-Python YouTube channel]].
