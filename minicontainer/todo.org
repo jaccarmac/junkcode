@@ -8,5 +8,5 @@ are a lot of TODOs). When in doubt, strace the (hopefully working) Go code.
 
 Liz has [[https://gist.github.com/julz/c0017fa7a40de0543001][linked code]] and a second talk with [[https://github.com/lizrice/containers-from-scratch][more code]].
 
-[[https://git.spwhitton.name/consfigurator/about/][Consfigurator]] by [[https://spwhitton.name/blog/][Sean Whitton]] exists, and appears at a glance to do its
+[[https://git.spwhitton.name/consfigurator/about/][Consfigurator]] by [[https://spwhitton.name/blog/entry/consfigurator_1.0.0/][Sean Whitton]] exists, and appears at a glance to do its
 namespace magic using (pseudo-)executables. Sean exists in [[https://www.reddit.com/r/lisp/comments/uh0mcj/consfigurator_a_common_lisp_based_declarative/][this Reddit thread]].
