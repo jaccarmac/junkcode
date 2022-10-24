@@ -4,6 +4,6 @@ Lisp. sb-posix seems not to include the clone syscall, [[https://man7.org/linux/
 CLONE_NEWUTS value seems to go]]. The Go code appears to call [[https://github.com/golang/go/blob/7e72d384d66f48a78289edc6a7d1dc6ab878f990/src/os/exec_posix.go#L26][startProcess]] via
 [[https://github.com/golang/go/blob/7e72d384d66f48a78289edc6a7d1dc6ab878f990/src/os/exec/exec.go#L600][exec]], but I can't find any of the syscall details yet. There's [[https://github.com/golang/go/tree/7e72d384d66f48a78289edc6a7d1dc6ab878f990/src/syscall][a directory of
 files to search]]. It might be worth looking into [[https://git.savannah.gnu.org/cgit/guix.git/tree/gnu/build/linux-container.scm?id=d3e982dccbd8ec7e00a2ab3efa04bef8f1c16b9e][how Guix containerizes]] (there
-are a lot of TODOs).
+are a lot of TODOs). When in doubt, strace the (hopefully working) Go code.
 
 Liz has [[https://gist.github.com/julz/c0017fa7a40de0543001][linked code]] and a second talk with [[https://github.com/lizrice/containers-from-scratch][more code]].
