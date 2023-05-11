@@ -1,0 +1,2 @@
+The [[https://svelte.dev/docs#component-format-script-3-$-marks-a-statement-as-reactive][dollar sign]] is, in fact, [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label][valid JS label syntax]]. This would seem to open
+more transpilation possibilities for CLJS or Parenscript.
