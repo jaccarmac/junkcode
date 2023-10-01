@@ -12,11 +12,11 @@
              (gnu packages speech))
 
 (define gargoyle
-  (let ((commit "d88ad33532440fac65e8c970760c7d68b41e3633")
+  (let ((commit "376f014cf56dcebce94cf27cdde82aa41e5a58aa")
         (revision "1"))
     (package
       (name "gargoyle")
-      (version (git-version "2022.1" revision commit))
+      (version (git-version "2023.1" revision commit))
       (source (origin
                 (method git-fetch)
                 (uri (git-reference
@@ -25,7 +25,7 @@
                 (file-name (git-file-name name version))
                 (sha256
                  (base32
-                  "0gg34a28817gxnxbh7mlvh0mlb0lxhnzry8kj2ad9vihb2nklqnr"))))
+                  "1480pm697g2y98wdh5an17v1lallzb3lvxpgyqxxz6kzpfzzpyi8"))))
       (build-system cmake-build-system)
       (arguments
        '(#:configure-flags '("-DWITH_QT6=true")
