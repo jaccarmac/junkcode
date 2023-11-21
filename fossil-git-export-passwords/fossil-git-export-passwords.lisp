@@ -2,10 +2,9 @@
 
 (require "asdf")
 (require "sqlite")
-(import 'sqlite:connect)
-(import 'sqlite:disconnect)
 (import 'sqlite:execute-non-query)
 (import 'sqlite:execute-single)
+(import 'sqlite:with-open-database)
 (require "uiop")
 (import 'uiop:subdirectories)
 
@@ -14,9 +13,6 @@
 
 (defun mirror-state-db-path (base-path)
   (merge-pathnames ".mirror_state/db" base-path))
-
-(defun mirror-state-db (base-path)
-  (connect (mirror-state-db-path base-path)))
 
 (defun push-url-with-new-token (url token)
   (concatenate 'string
@@ -30,9 +26,8 @@
                      url))
 
 (defun replace-tokens-in-repo (repo-path new-token)
-  (let ((db (mirror-state-db repo-path)))
-    (replace-autopush-setting db (push-url-with-new-token (current-autopush-setting db) new-token))
-    (disconnect db)))
+  (with-open-database (db (mirror-state-db-path repo-path))
+    (replace-autopush-setting db (push-url-with-new-token (current-autopush-setting db) new-token))))
 
 (defun replace-tokens-in-repo-directory (base-path new-token)
   (dolist (repo (subdirectories base-path))
@@ -40,6 +35,5 @@
 
 (defun print-current-urls ()
   (dolist (repo (subdirectories "."))
-    (let ((db (mirror-state-db repo)))
-      (format t "~a~%" (current-autopush-setting db))
-      (disconnect db))))
+    (with-open-database (db (mirror-state-db-path repo))
+      (format t "~a~%" (current-autopush-setting db)))))
