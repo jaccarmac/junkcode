@@ -2,9 +2,12 @@
 
 (require "asdf")
 (require "sqlite")
+(import 'sqlite:connect)
+(import 'sqlite:disconnect)
+(import 'sqlite:execute-non-query)
+(import 'sqlite:execute-single)
 (require "uiop")
-
-(use-package :sqlite)
+(import 'uiop:subdirectories)
 
 (defun current-autopush-setting (db)
   (execute-single db "SELECT value FROM mconfig WHERE key='autopush'"))
@@ -32,11 +35,11 @@
     (disconnect db)))
 
 (defun replace-tokens-in-repo-directory (base-path new-token)
-  (dolist (repo (uiop:subdirectories base-path))
+  (dolist (repo (subdirectories base-path))
     (replace-tokens-in-repo repo new-token)))
 
 (defun print-current-urls ()
-  (dolist (repo (uiop:subdirectories "."))
+  (dolist (repo (subdirectories "."))
     (let ((db (mirror-state-db repo)))
       (format t "~a~%" (current-autopush-setting db))
       (disconnect db))))
