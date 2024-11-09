@@ -1,0 +1,6 @@
+Book available at https://hop.perl.plover.com/
+
+ShenSharp is up to date now.
+
+Script the build of an environment with ShenSharp with Docker in Guix
+end-to-end somehow.

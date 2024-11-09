@@ -1,0 +1,3 @@
+The best starting point seems to be some kind of [[https://www.geneva.edu/dept/chemistry-math-physics/physics-research/catastrophe-machine/index][machine]] (see [[https://news.ycombinator.com/item?id=42081309][HN]] of motivating
+article). The visualizations of kinds of catastrophe are quite beautiful and
+hopefully not that intensive for modern hardware.
