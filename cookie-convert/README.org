@@ -1,0 +1,5 @@
+I scratched this together to avoid another browser extension to get Google
+Drive cookies into JDownloader. I export the site and container cookies in
+Netscape format and use shasht to generate a pasteable string.
+
+* TODO Finish figuring out the hardcoded keys.
