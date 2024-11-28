@@ -1,4 +1,4 @@
-Book available at https://hop.perl.plover.com/
+Book available at [[https://hop.perl.plover.com/book/pdf/HigherOrderPerl.pdf]]
 
 ShenSharp is up to date now.
 
