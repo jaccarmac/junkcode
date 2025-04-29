@@ -1,0 +1,41 @@
+--- flow-scratch.richhickey.clj	2025-04-29 15:31:54.505696051 -0500
++++ flow-scratch.clj	2025-04-29 15:32:47.441903029 -0500
+@@ -61,9 +61,9 @@
+        {:proc (flow/process #'ddupe)}
+ 
+        :prn-sink
+-       {:proc (flow/process
+-               {:describe (fn [] {:ins {:in "gimme stuff to print!"}})
+-                :transform (fn [_ _ v] (prn v))})}}
++       {:proc (flow/process (flow/map->step
++                             {:describe (fn [] {:ins {:in "gimme stuff to print!"}})
++                              :transform (fn [_ _ v] (prn v))}))}}
+       :conns
+       [
+        [[:dice-source :out] [:dedupe :in]]
+@@ -71,14 +71,14 @@
+        [[:craps-finder :out] [:prn-sink :in]]]
+        })
+ 
+-(def g (flow/create-flow gdef))
+-(pprint (d/datafy g))
+-(monitoring (flow/start g))
+-(flow/resume g) ;;wait a bit for craps to print
+-(flow/pause g)
+-(flow/pause-proc g :prn-sink)
+-(flow/resume-proc g :prn-sink)
+-(flow/inject g [:craps-finder :in] [[1 2] [2 1] [2 1] [6 6] [6 6] [4 3] [1 1]])
+-(pprint (flow/ping g))
+-(pprint (flow/ping-proc g :prn-sink))
+-(flow/stop g)
++(comment (def g (flow/create-flow gdef))
++         (pprint (d/datafy g))
++         (monitoring (flow/start g))
++         (flow/resume g) ;;wait a bit for craps to print
++         (flow/pause g)
++         (flow/pause-proc g :prn-sink)
++         (flow/resume-proc g :prn-sink)
++         (flow/inject g [:craps-finder :in] [[1 2] [2 1] [2 1] [6 6] [6 6] [4 3] [1 1]])
++         (pprint (flow/ping g))
++         (pprint (flow/ping-proc g :prn-sink))
++         (flow/stop g))
