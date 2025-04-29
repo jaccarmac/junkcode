@@ -10,3 +10,4 @@ svelte-cljs/public/js/
 **/.shadow-cljs/
 pdf-invoice-extract/out/
 *.fasl
+**/.cpcache
