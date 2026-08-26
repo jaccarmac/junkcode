@@ -9,14 +9,15 @@
              (gnu packages pkg-config)
              (gnu packages sdl)
              (gnu packages glib)
-             (gnu packages speech))
+             (gnu packages speech)
+             (gnu packages audio))
 
 (define gargoyle
-  (let ((commit "a682063f542cdf63388af166845d5e42189a9b44")
+  (let ((commit "98b61fe5fbb2b685558ab4dda3fab9d5688693e8")
         (revision "1"))
     (package
       (name "gargoyle")
-      (version (git-version "2023.1" revision commit))
+      (version (git-version "2026.1.1" revision commit))
       (source
        (origin
          (method git-fetch)
@@ -25,7 +26,7 @@
                (commit commit)))
          (file-name (git-file-name name version))
          (sha256
-          (base32 "016g530azxv7c229vfqsy1ikz3jfkxidq4300fr5xn4h3yh05idi"))))
+          (base32 "0k02h6dp56k5cg9xym1b8y1fp0y60nwag7d7g7y5vms9k3lgj8zk"))))
       (build-system cmake-build-system)
       (arguments
        '(#:configure-flags '("-DWITH_QT6=true")
@@ -37,7 +38,9 @@
                     sdl2-mixer
                     fontconfig
                     glib
-                    speech-dispatcher))
+                    speech-dispatcher
+                    qtmultimedia
+                    libopenmpt))
       (home-page "http://ccxvii.net/gargoyle/")
       (synopsis "An interactive fiction player")
       (description
