@@ -13,7 +13,7 @@
              (gnu packages audio))
 
 (define gargoyle
-  (let ((commit "98b61fe5fbb2b685558ab4dda3fab9d5688693e8")
+  (let ((commit "a716e26ec05bf38804909b51233e024badad65c8")
         (revision "1"))
     (package
       (name "gargoyle")
@@ -26,7 +26,7 @@
                (commit commit)))
          (file-name (git-file-name name version))
          (sha256
-          (base32 "0k02h6dp56k5cg9xym1b8y1fp0y60nwag7d7g7y5vms9k3lgj8zk"))))
+          (base32 "06468w2fgry8z36nkjwi0cnjwm2ynshr06y9bd8a5rdkkm0yjn77"))))
       (build-system cmake-build-system)
       (arguments
        '(#:configure-flags '("-DWITH_QT6=true")
